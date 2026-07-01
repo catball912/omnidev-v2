@@ -1,0 +1,5 @@
+Repo URL,Stars,Forks,Last Commit Date,License,Primary Language,One-line Strength,One-line Weakness
+https://github.com/paul-gauthier/aider,12000+,1000+,2026-06-30,Apache-2.0,Python,Best-in-class git auto-commit workflow,Terminal text only; prone to context loss on long tasks
+https://github.com/All-Hands-AI/OpenHands,30000+,3000+,2026-06-25,MIT,Python/TS,Truly editor agnostic and powerful docker sandboxing,Complex setup and high resource overhead
+https://github.com/block/goose,5000+,400+,2026-06-28,Apache-2.0,Rust,Strong state machine orchestration,Limited aesthetic DX in standard output
+https://github.com/cline/cline,15000+,1200+,2026-06-29,Apache-2.0,TypeScript,Gorgeous UI and excellent MCP integration,Tightly coupled to VS Code exclusively

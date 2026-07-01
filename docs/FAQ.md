@@ -1,35 +1,37 @@
-# 💡 OmniDev 十大靈魂拷問 (FAQ)
+# 💡 OmniDev Top 10 FAQ
 
-這份 Q&A 將解答你對 OmniDev 的所有疑惑，並告訴你為什麼這是你需要的最後一個 AI Coding Agent。
+This Q&A will resolve all your doubts about OmniDev and explain why it's the last AI Coding Agent you'll ever need.
+
+🌍 **[繁體中文版 (Traditional Chinese)](./FAQ.zh-TW.md)**
 
 ---
 
-### Q1: 市面上已經有 OpenClaw、Devin 等全自動 Agent，為什麼我還要用 OmniDev？
-**A:** 全自動 Agent（如 OpenClaw）通常依賴如同黑盒子般的無限迴圈，一旦 LLM 產生幻覺（Hallucination），它可能會陷入無限修改同一個檔案的死結，甚至清空你的程式碼。OmniDev 採用業界標準的 **XState 狀態機**，加上 **Human-in-the-loop (人類審核)**，AI 每個大動作前都會先寫好實體計畫 (`plan.md`) 讓你點頭。我們是「可控的結對程式設計夥伴」，絕不暴走。
+### Q1: There are already fully autonomous agents like OpenClaw and Devin. Why should I use OmniDev?
+**A:** Fully autonomous agents (like OpenClaw) often rely on black-box-like infinite loops. If the LLM hallucinates, it might get stuck in a loop repeatedly editing the same file, or even wipe out your codebase. OmniDev uses industry-standard **XState state machines** combined with **Human-in-the-loop validation**. Before making any major moves, the AI writes a physical plan (`plan.md`) for you to approve. We are a "controllable pair programming partner", preventing runaway AI execution.
 
-### Q2: 為什麼不用 Codex CLI 或 Aider 就好？
-**A:** Codex CLI 與 Aider 本質上是「搬進終端機的對話框」。當任務跨越多個檔案與長篇幅時，它們會受限於 LLM 短暫的 Context Window，走到第 10 步就忘了第 1 步。OmniDev 擁有 **Crash-Proof 防崩潰檔案規劃系統** 與 **持久化記憶 (`memory.json`)**，不只解決了「金魚腦」問題，還能為你省下海量的 API 費用。
+### Q2: Why not just use Codex CLI or Aider?
+**A:** Codex CLI and Aider are essentially "chatboxes inside a terminal." When a task spans multiple files and is lengthy, they suffer from the limits of the LLM's Context Window—by step 10, they've forgotten step 1. OmniDev features a **Crash-Proof File Planning System** and **Persistent Memory (`memory.json`)**, entirely eliminating this "goldfish memory" problem and saving you massive API costs.
 
-### Q3: 什麼是「防斷線續傳 (Crash-Proof)」？有這麼神奇嗎？
-**A:** 想像你正在跑一個大型重構任務，突然不小心關掉終端機或停電。對於其他工具，剛才花費幾萬 Token 建立的 Context 就全沒了。OmniDev 將大腦狀態實體化，重開機後它會瞬間讀取 `.omnidev/plan.md`，無縫接軌從上一秒中斷的地方繼續工作，連 LLM 都不用重新呼叫！
+### Q3: What is "Crash-Proof"? Is it really that magical?
+**A:** Imagine running a massive refactoring task. Suddenly, you accidentally close your terminal or your power goes out. With other tools, the context built from spending thousands of tokens is gone. OmniDev physicalizes its brain state. Upon restart, it instantly reads `.omnidev/plan.md` and seamlessly resumes exactly where it left off, without even needing to call the LLM to remember what to do!
 
-### Q4: 介面看起來很華麗，但這會不會讓工具變得肥大？
-**A:** 完全不會。我們採用了 React 的終端機渲染引擎 `Ink`，它非常輕量。流暢的漸層色 (Gradient) 與旋轉動畫 (Spinner) 只是在純文字上加上了精緻的 ANSI 渲染。它讓你擁有極致的 Developer Experience (DX)，但資源消耗與普通 Node.js 腳本無異。
+### Q4: The interface looks gorgeous, but doesn't that make the tool bloated?
+**A:** Not at all. We use React's terminal rendering engine `Ink`, which is incredibly lightweight. The smooth gradients and spinners are simply elegant ANSI rendering on top of plain text. It gives you the ultimate Developer Experience (DX) while consuming no more resources than a standard Node.js script.
 
-### Q5: 我一定要用 VS Code 才能跑 OmniDev 嗎？
-**A:** **完全不需要！** OmniDev 是 Editor-Agnostic（編輯器中立）的。市面上很紅的 Cline 只能在 VS Code 裡面用，但 OmniDev 是一個原生的 CLI 工具。不管你用的是 VS Code、WebStorm、Zed 還是最硬核的 Vim/Neovim，只要能開終端機就能用。
+### Q5: Do I have to use VS Code to run OmniDev?
+**A:** **Absolutely not!** OmniDev is Editor-Agnostic. While popular tools like Cline only work inside VS Code, OmniDev is a native CLI tool. Whether you use VS Code, WebStorm, Zed, or hardcore Vim/Neovim, as long as you can open a terminal, you can use OmniDev.
 
-### Q6: OmniDev 會把我的 API Key 或程式碼偷偷上傳嗎？
-**A:** 不會。OmniDev 是一個 100% 開源且在 Local 端執行的工具。你的程式碼只會透過官方 SDK (如 `@google/genai` 或 Vercel AI SDK) 傳送到你指定的 LLM 提供商。我們沒有遙測 (Telemetry)，也沒有中介伺服器。
+### Q6: Will OmniDev stealthily upload my API Keys or source code?
+**A:** No. OmniDev is a 100% open-source tool that runs entirely locally. Your code is only sent to your specified LLM provider via official SDKs (like `@google/genai` or Vercel AI SDK). We have zero telemetry and no middleman servers.
 
-### Q7: OmniDev 支援哪些 LLM？只能用 GPT-4 嗎？
-**A:** 我們在底層設計了抽象的 `llm.ts` 介面，目前預設支援 Google 最新的 Gemini 2.5 系列 (因為它速度極快且擁有超大 Context Window)。未來你可以透過修改 `.env` 輕鬆接入 Claude 3.5 Sonnet 或 OpenAI 的模型 (Bring Your Own Key)。
+### Q7: Which LLMs does OmniDev support? Is it only GPT-4?
+**A:** We designed an abstract `llm.ts` interface under the hood. Currently, it defaults to Google's latest Gemini 2.5 series (due to its extreme speed and massive context window). In the future, you can easily connect Claude 3.5 Sonnet or OpenAI models just by tweaking the `.env` file (Bring Your Own Key).
 
-### Q8: 如果我有很多個專案，OmniDev 會搞混嗎？
-**A:** 不會。OmniDev 的記憶體結構 (`.omnidev/` 資料夾) 是跟著「專案目錄」走的。在 A 專案裡它會記得 A 專案的技術棧與你的喜好；切換到 B 專案時，它就是一個專屬於 B 專案的專家。
+### Q8: If I have multiple projects, will OmniDev get confused?
+**A:** No. OmniDev's memory structure (the `.omnidev/` folder) is tied to the "project directory." In Project A, it remembers Project A's tech stack and your preferences; switch to Project B, and it becomes an exclusive expert for Project B.
 
-### Q9: 它能幫我自動 Commit 到 Git 嗎？
-**A:** 當然！我們吸收了 Aider 的優點。當 OmniDev 成功執行完一個大計畫的節點並經過你同意後，它可以被配置為自動將修改進行 `git commit`，並附上詳盡的修改日誌，讓你的 Git 歷史紀錄乾淨又專業。
+### Q9: Can it automatically commit to Git for me?
+**A:** Definitely! We absorbed Aider's best feature. When OmniDev successfully finishes a major step in the plan and you approve it, it can automatically perform a `git commit` with a detailed changelog, keeping your Git history pristine and professional.
 
-### Q10: 這個專案未來的 Roadmap 是什麼？
-**A:** 我們目前的架構已經具備了最強的「防崩潰」與「狀態機」底層。下一步是接入完整的 **MCP (Model Context Protocol)**，讓 OmniDev 可以直接操作檔案系統、執行終端機指令、甚至自己去查官方文件。最終目標是成為 AI 時代的終極 CLI 標準配備！
+### Q10: What is the future Roadmap for this project?
+**A:** Our current architecture already boasts the strongest "crash-proof" and "state machine" foundations. The next step is integrating the full **MCP (Model Context Protocol)**, allowing OmniDev to directly manipulate file systems, execute terminal commands, and even search official docs on its own. The ultimate goal is to become the ultimate standard-issue CLI for the AI era!

@@ -2,6 +2,18 @@
   "name": "omnidev",
   "version": "1.0.0",
   "description": "Editor-agnostic AI Coding Agent",
+  "keywords": [
+    "ai",
+    "agent",
+    "coding",
+    "llm",
+    "cli",
+    "xstate",
+    "gemini",
+    "developer-tools",
+    "autonomous",
+    "mcp"
+  ],
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
